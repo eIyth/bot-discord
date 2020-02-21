@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const token = 'Njc4NTYyMTEwNTM1MzY4NzE0.Xkkmbg.541pp2kO50e48wgYXt1sFpYmXZE';
+const token = 'Njc4NTYyMTEwNTM1MzY4NzE0.Xk9m4g.sPAjbX_j4kz353GhPnW-AIodPYA';
 
 const PREFIX = '>';
 
@@ -9,6 +9,8 @@ var version = '0.0.1'
 
 var servers = {};
 const axios = require("axios");
+var unirest = require('unirest');
+
 
 bot.on('ready', () => {
     console.log('le bot est online');
@@ -77,17 +79,24 @@ bot.on('message', async message => {
         case 'mot':
             if (args[1] === 'def') {
                let getMot = async () => {
-                  let response = await axios.get("https://wordsapiv1.p.mashape.com/words/"+args[2]+"/definitions");
-                  let def = response.data;
+                  let response = await unirest.get("https://wordsapiv1.p.mashape.com/words/"+args[2])
+		      .header("X-Mashape-Key", "e0d10c86dfmsh30f5845af8ce81ep148e9ajsn82de9e842fc6")
+		      .header("Accept", "application/json");
+                  let def = response.body;
                   return def;
                }
-               let motDef = await getDef();
-               const embed = new Discord.RichEmbed()
+               let motDef = await getMot();
+		console.log(motDef);
+	       if(motDef.word){
+		const embed = new Discord.RichEmbed()
                .setColor('grey')
                .setTitle("Définition d'un mot")
-               .addField('Que veut dire '+args[2]+'?',motDef.definitions[definition]);
-
+               .addField('Que veut dire '+args[2]+'?',motDef.results[0].definition);
                message.channel.send(embed);
+		}
+		else {
+		message.channel.send("Verifiez l'ortographe du mot");
+		}
         }
 
 
