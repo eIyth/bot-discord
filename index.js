@@ -90,15 +90,22 @@ bot.on('message', async message => {
                         .setColor('grey')
                         .setTitle("Définition d'un mot")
                         .addField('Que veut dire ' + args[2] + '?', motDef.results[0].definition);
-                    console.log(motDef.results.length);
-                    for (let i=1;i<motDef.results.length;i++){
-                        embed.addField('Autre définition n°'+i, motDef.results[i].definition)
+                    for (let i = 1; i < motDef.results.length; i++) {
+                        embed.addField('Autre définition n°' + i, motDef.results[i].definition)
                     }
                     message.channel.send(embed);
 
                 } else {
                     message.channel.send("Verifiez l'ortographe du mot");
                 }
+            } else {
+                const embed = new Discord.RichEmbed()
+                    .setColor('grey')
+                    .setTitle("Possibilté de commande mot")
+                    .addField("Avoir la définition d'un mot", '>mot def example')
+                    .addField("Avoir les synonymes d'un mot", '>mot syn example');
+                message.channel.send(embed);
+
             }
             break;
     }
