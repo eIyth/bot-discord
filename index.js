@@ -41,7 +41,7 @@ bot.on('message', async message => {
         case 'fact':
             if (args[1] === 'jour') {
                 let getFact = async () => {
-                    let response = await axios.get("https://uselessfacts.jsph.pl/today.json?language=en")
+                    let response = await axios.get("https://uselessfacts.jsph.pl/today.json?language=en");
                     let fact = response.data;
                     return fact
                 }
@@ -57,7 +57,7 @@ bot.on('message', async message => {
             }
             else {
                 let getFact = async () => {
-                    let response = await axios.get("https://uselessfacts.jsph.pl/random.json?language=en")
+                    let response = await axios.get("https://uselessfacts.jsph.pl/random.json?language=en");
                     let fact = response.data;
                     return fact
                 }
@@ -74,6 +74,22 @@ bot.on('message', async message => {
 
             }
             break;
+        case 'mot':
+            if (args[1] === 'def') {
+               let getMot = async () => {
+                  let response = await axios.get("https://wordsapiv1.p.mashape.com/words/"+args[2]+"/definitions");
+                  let def = response.data;
+                  return def;
+               }
+               let motDef = await getDef();
+               const embed = new Discord.RichEmbed()
+               .setColor('grey')
+               .setTitle("Définition d'un mot")
+               .addField('Que veut dire '+args[2]+'?',motDef.definitions[definition]);
+
+               message.channel.send(embed);
+        }
+
 
     }
 });
