@@ -1,0 +1,7 @@
+le bot est online
+(node:12022) UnhandledPromiseRejectionWarning: TypeError: Cannot read property '0' of undefined
+    at Client.bot.on (/root/bot-discord/index.js:101:83)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+(node:12022) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:12022) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.

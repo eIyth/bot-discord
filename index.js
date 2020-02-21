@@ -14,6 +14,15 @@ var unirest = require('unirest');
 
 bot.on('ready', () => {
     console.log('le bot est online');
+    bot.user.setStatus('dnd');
+    bot.user.setPresence({
+	game : {
+		name : 'Obanni UGA UGA',
+		type:'LISTENING',
+		url : 'https://twitter.com/pyckoudyr'
+		}
+    });
+
 });
 
 
