@@ -9,18 +9,18 @@ var version = '0.0.1'
 
 var servers = {};
 const axios = require("axios");
-var unirest = require('unirest');
+var unirest = require("unirest");
 
 
 bot.on('ready', () => {
     console.log('le bot est online');
     bot.user.setStatus('dnd');
     bot.user.setPresence({
-	game : {
-		name : 'Obanni UGA UGA',
-		type:'LISTENING',
-		url : 'https://twitter.com/pyckoudyr'
-		}
+        game: {
+            name: 'Obanni UGA UGA',
+            type: 'LISTENING',
+            url: 'https://twitter.com/pyckoudyr'
+        }
     });
 
 });
@@ -107,14 +107,30 @@ bot.on('message', async message => {
                 } else {
                     message.channel.send("Verifiez l'ortographe du mot");
                 }
+            } else if (args[1] === 'rnd') {
+                let getMotRnd = async () => {
+                    let response = await unirest.get("https://wordsapiv1.p.mashape.com/words/?random=true")
+                        .header("X-Mashape-Key", "e0d10c86dfmsh30f5845af8ce81ep148e9ajsn82de9e842fc6");
+                    let def = response.body;
+                    return def;
+                }
+
+                let motDefRnd = await getMotRnd();
+                console.log(motDefRnd);
+                const embed = new Discord.RichEmbed()
+                    .setColor('red')
+                    .setTitle("Mot aléatoire")
+                    .addField('Savez-vous que veut-dire : ', motDefRnd.word)
+                    .addField('Deffinition :', motDefRnd.results[0].definition);
+                message.channel.send(embed);
             } else {
                 const embed = new Discord.RichEmbed()
                     .setColor('grey')
                     .setTitle("Possibilté de commande mot")
                     .addField("Avoir la définition d'un mot", '>mot def example')
-                    .addField("Avoir les synonymes d'un mot", '>mot syn example');
+                    .addField("Avoir les synonymes d'un mot", '>mot syn example')
+                    .addField("Avoir un mot aleatoire", '>mot rnd');
                 message.channel.send(embed);
-
             }
             break;
     }
