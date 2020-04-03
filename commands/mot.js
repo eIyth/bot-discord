@@ -7,8 +7,7 @@ module.exports = {
     name: "mot",
     description: "Renvoi le définition d'un mot ou un mot aleatoire",
     run: async (client, message, args) => {
-        console.log(args);
-        if (args[0] === 'def') {
+        if (args[1] === 'def') {
             let getMot = async () => {
                 let response = await unirest.get("https://wordsapiv1.p.mashape.com/words/" + args[1])
                     .header("X-Mashape-Key", "e0d10c86dfmsh30f5845af8ce81ep148e9ajsn82de9e842fc6")
@@ -40,7 +39,6 @@ module.exports = {
 
             try {
                 let motDefRnd = await getMotRnd();
-                console.log(motDefRnd);
                 const embed = new Discord.RichEmbed()
                     .setColor('red')
                     .setTitle("Mot aléatoire")
@@ -49,7 +47,6 @@ module.exports = {
                 message.channel.send(embed);
             } catch {
                 let motDefRnd = await getMotRnd();
-                console.log(motDefRnd);
                 const embed = new Discord.RichEmbed()
                     .setColor('red')
                     .setTitle("Mot aléatoire")
