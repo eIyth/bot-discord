@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 const unirest = require("unirest");
 
 module.exports = {
