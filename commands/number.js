@@ -13,7 +13,13 @@ module.exports = {
                 return def;
             }
             let numberFact = await getMot();
-            console.log(numberFact);
+            
+
+            const embed = new Discord.RichEmbed()
+                    .setColor('blue')
+                    .setTitle("Fact sur un nombre random")
+                    .addField('Le saviez vous ? ', numberFact);
+                message.channel.send(embed);
         }
 
     }
