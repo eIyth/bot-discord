@@ -9,8 +9,10 @@
   "author": "elyth",
   "license": "ISC",
   "dependencies": {
+    "ascii-table": "0.0.9",
     "axios": "^0.19.2",
     "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.0.1",
     "node-fetch": "^2.6.0",
