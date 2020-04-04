@@ -15,7 +15,7 @@ module.exports = {
                 "x-rapidapi-key": "AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl"
             });
 
-            let fact = req.data;
+            let fact = req.body;
             return fact;
         }
         let lyricsValue = await getLyrics();
