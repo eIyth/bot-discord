@@ -8,7 +8,7 @@ module.exports = {
     description: "Renvoi les paroles d'une musique",
     usage: 'lyrics nom',
     run: async (client, message, args) => {
-        args = message.content.slice(prefix.length).split(/ +/);
+        args = message.content.split(/ +/);
         genius.search(args).then(function (response) {
 
             const embed = new Discord.RichEmbed()
