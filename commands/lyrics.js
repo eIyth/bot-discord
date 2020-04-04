@@ -10,17 +10,17 @@ module.exports = {
     usage: 'lyrics nom',
     run: async (client, message, args) => {
         genius.search(JSON.stringify(args)).then(function (response) {
+            var res="";
 
             fetch(response.hits[0].result.url, {
                     method: 'GET',
                 })
                 .then(response => {
-                    if (response.ok) return response.text()
+                    if (response.ok) res= response.text()
                     throw new Error('Could not get song url ...');
                 })
-                .then(parseSongHTML);
 
-            const $ = cheerio.load(htmlText);
+            const $ = cheerio.load(res);
             const lyrics = $('.lyrics').text();
             const releaseDate = $('release-date .song_info-info').text();
             console.log(lyrics);
