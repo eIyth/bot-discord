@@ -22,7 +22,8 @@ module.exports = {
             return lyrics;
             console.log(res.body);
         });
-        let lyricsValue = lyricsValue.response;
+
+        let lyricsValue = lyrics.response;
         console.log(lyricsValue.response.hits);
 
         const embed = new Discord.RichEmbed()
