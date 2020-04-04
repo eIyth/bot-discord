@@ -11,29 +11,19 @@ module.exports = {
     run: async (client, message, args) => {
         genius.search(JSON.stringify(args)).then(function (response) {
 
-            genius.prototype.getSongLyrics = function getSongLyrics(geniusUrl) {
-                return fetch(geniusUrl, {
-                  method: 'GET',
+            fetch(response.hits[0].result.url, {
+                    method: 'GET',
                 })
                 .then(response => {
-                  if (response.ok) return response.text()
-                  throw new Error('Could not get song url ...');
+                    if (response.ok) return response.text()
+                    throw new Error('Could not get song url ...');
                 })
                 .then(parseSongHTML);
-              };
 
-              function parseSongHTML(htmlText) {
-                const $ = cheerio.load(htmlText);
-                const lyrics = $('.lyrics').text();
-                const releaseDate = $('release-date .song_info-info').text();
-                return {
-                  lyrics,
-                  releaseDate,
-                };
-              };
-              console.log(response.hits[0].result.url)
-              console.log(getSongLyrics(response.hits[0].result.url));
-
+            const $ = cheerio.load(htmlText);
+            const lyrics = $('.lyrics').text();
+            const releaseDate = $('release-date .song_info-info').text();
+            console.log(lyrics);
 
             // const embed = new Discord.RichEmbed()
             //     .setColor('#ffff00')
@@ -43,7 +33,7 @@ module.exports = {
             //     .addField(response.hits[0].result.full_title, response.hits[0].result.url)
             //     .setThumbnail(response.hits[0].result.song_art_image_thumbnail_url);
             // message.channel.send(embed);
-            
+
             // URL = response.hits[0].result.url;
             // request({
             //         uri: URL
