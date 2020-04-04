@@ -12,12 +12,30 @@ module.exports = {
         genius.search(JSON.stringify(args)).then(function (response) {
 
 
-            fetch(response.hits[0].result.url)
-                .then(res => res.text())
-                .then(res => console.log(res))
-                .then(res => cheerio.load(res))
-                .then(res => res('.lyrics').text())
-                .then(res => console.log(res))
+
+
+            function getSongLyrics(geniusUrl) {
+                return fetch(geniusUrl, {
+                        method: 'GET',
+                    })
+                    .then(response => {
+                        if (response.ok) return response.text()
+                        throw new Error('Could not get song url ...')
+                    })
+                    .then(parseSongHTML)
+            }
+
+            function parseSongHTML(htmlText) {
+                const $ = cheerio.load(htmlText)
+                const lyrics = $('.lyrics').text()
+                const releaseDate = $('release-date .song_info-info').text()
+                return {
+                    lyrics,
+                    releaseDate,
+                }
+            }
+
+            console.log(getSongLyrics(response.hits[0].result.url));
 
 
             // const embed = new Discord.RichEmbed()
