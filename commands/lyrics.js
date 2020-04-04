@@ -8,13 +8,9 @@ module.exports = {
     usage: 'lyrics artist musique',
     run: async (client, message, args) => {
         let getLyrics = async () => {
-            var req = unirest("GET", "https://genius.p.rapidapi.com/search/"+args[0]);
-
-            req.headers({
-                "x-rapidapi-host": "genius.p.rapidapi.com",
-                "x-rapidapi-key": "AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl"
-            });
-
+            var req = await unirest.get("https://genius.p.rapidapi.com/search/"+args[0])
+            .header("x-rapidapi-host", "genius.p.rapidapi.com")
+            .header("x-rapidapi-key", "AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl");
             let fact = req.body;
             return fact;
         }
