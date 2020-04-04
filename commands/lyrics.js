@@ -32,12 +32,12 @@ module.exports = {
             });
 
             var parseMyAwesomeHtml = function(html) {
-                lyrics = html.find("div", class_ = "lyrics").get_text();
-                console.log(lyrics);
+                console.log(html);
             };
-
-           
             
+          
+
+
         });
     }
 }
