@@ -11,14 +11,11 @@ module.exports = {
     run: async (client, message, args) => {
         genius.search(JSON.stringify(args)).then(function (response) {
             var res="";
-            console.log(response.hits[0].result.url);
             fetch(response.hits[0].result.url)
-                .then(res => res.text())
-                .then(body => console.log(body));
+                .then(res => res.text());
 
             const $ = cheerio.load(res);
             const lyrics = $('.lyrics').text();
-            const releaseDate = $('release-date .song_info-info').text();
             console.log(lyrics);
 
             // const embed = new Discord.RichEmbed()
