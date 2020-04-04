@@ -12,6 +12,7 @@ module.exports = {
                 .query("q", args[0])
                 .header("x-rapidapi-host", "genius.p.rapidapi.com")
                 .header("x-rapidapi-key", "0878bdba20msh3a2cb883c1d7b48p153c9djsn1087d1e71043");
+            console.log(req);
             let fact = req.body;
             return fact;
         }
@@ -20,7 +21,7 @@ module.exports = {
 
         const embed = new Discord.RichEmbed()
             .setColor('grey')
-            .setTitle("Paroles de" + lyricsValue.response.properties.hits[0].result.title)
+            .setTitle("Paroles de" + lyricsValue.response.hits[0].result.title)
             .addField('Blablabla', '');
         message.channel.send(embed);
     }
