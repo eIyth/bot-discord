@@ -8,18 +8,21 @@ module.exports = {
     usage: 'lyrics artist musique',
     run: async (client, message, args) => {
         let getLyrics = async () => {
-            let reponse = await axios({
-                "method": "GET",
-                "url": "https://genius.p.rapidapi.com/search/" + args[0],
-                "headers": {
-                    "content-type": "application/octet-stream",
-                    "x-rapidapi-host": "genius.p.rapidapi.com",
-                    "x-rapidapi-key": "AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl"
-                }
+            var req = unirest("GET", "https://genius.p.rapidapi.com/search/"+args[0]);
+
+            req.headers({
+                "x-rapidapi-host": "genius.p.rapidapi.com",
+                "x-rapidapi-key": "AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl"
             });
             console.log('salut')
             let fact = response.data;
             console.log(fact);
         }
+
+        req.end(function (res) {
+            if (res.error) throw new Error(res.error);
+        
+            console.log(res.body);
+        });
     }
 }
