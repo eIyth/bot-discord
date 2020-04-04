@@ -12,8 +12,8 @@ module.exports = {
         genius.search(JSON.stringify(args)).then(function (response) {
             var retour = "";
             fetch(response.hits[0].result.url)
-                .then(res => res.text()
-                .then(console.log(res));
+                .then(res => res.text())
+                .then(console.log(res))
 
 
             // const embed = new Discord.RichEmbed()
