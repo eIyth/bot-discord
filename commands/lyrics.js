@@ -11,9 +11,12 @@ module.exports = {
         genius.search(args[0]).then(function (response) {
 
             const embed = new Discord.RichEmbed()
-                .setColor('grey')
-                .setTitle("Paroles de" + response.hits[0].result.title)
-                .addField('Blablabla', response.hits[0].result.url);
+                .setColor('yellow')
+                .setTitle(response.hits[0].result.title)
+                .setAuthor("par " +response.hits[0].result.primary_artist.name)
+                .addField( response.hits[0].result.full_title, response.hits[0].result.url)
+                .setThumbnail(response.hits[0].result.song_art_image_thumbnail_url)
+                .setImage(response.hits[0].result.song_art_image_url)
             message.channel.send(embed);
         });
     }
