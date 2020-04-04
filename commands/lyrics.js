@@ -14,11 +14,8 @@ module.exports = {
                 "x-rapidapi-host": "genius.p.rapidapi.com",
                 "x-rapidapi-key": "AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl"
             });
-            req.end(function (res) {
-                if (res.error) throw new Error(res.error);
-
-                console.log(res.body);
-            });
         }
+        let lyricsValue = await getLyrics();
+        console.log(lyricsValue);
     }
 }
