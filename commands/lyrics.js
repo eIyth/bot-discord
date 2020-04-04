@@ -20,7 +20,7 @@ module.exports = {
 
         const embed = new Discord.RichEmbed()
             .setColor('grey')
-            .setTitle("Paroles de" + lyricsValue.response.hits[0].result.title)
+            .setTitle("Paroles de" + lyricsValue.response.properties.hits[0].result.title)
             .addField('Blablabla', '');
         message.channel.send(embed);
     }
