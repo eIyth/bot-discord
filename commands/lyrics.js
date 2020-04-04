@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 var api = require('genius-api');
 var genius = new api("AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl");
 var JSSoup = require('jssoup').default;
+var request = require("request");
 
 module.exports = {
     name: "lyrics",
@@ -21,7 +22,7 @@ module.exports = {
 
 
             URL = response.hits[0].result.url;
-            page = requests.get(URL)
+            page = request.get(URL);
 
             html = JSSoup(page.text, "html.parser");
 
