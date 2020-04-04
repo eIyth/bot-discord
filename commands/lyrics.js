@@ -14,6 +14,9 @@ module.exports = {
                 "x-rapidapi-host": "genius.p.rapidapi.com",
                 "x-rapidapi-key": "AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl"
             });
+
+            let fact = req.data;
+            return fact;
         }
         let lyricsValue = await getLyrics();
         console.log(lyricsValue);
