@@ -10,7 +10,7 @@ module.exports = {
         let getLyrics = async () => {
             var req = await unirest.get("https://genius.p.rapidapi.com/search/"+args[0])
             .header("x-rapidapi-host", "genius.p.rapidapi.com")
-            .header("x-rapidapi-key", "AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl");
+            .header("x-rapidapi-key", "0878bdba20msh3a2cb883c1d7b48p153c9djsn1087d1e71043");
             let fact = req.body;
             return fact;
         }
