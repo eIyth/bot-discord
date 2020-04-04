@@ -27,10 +27,7 @@ module.exports = {
                     uri: URL
                 },
                 function (error, response, body) {
-
-                    var lyrics = body.find("div", class_ = "lyrics").get_text();
-
-                    data = extractor(my_html_data);
+                    data = extractor(body);
                     console.log(data);
                 });
 
