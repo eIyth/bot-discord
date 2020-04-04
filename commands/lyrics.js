@@ -14,11 +14,7 @@ module.exports = {
                 "x-rapidapi-host": "genius.p.rapidapi.com",
                 "x-rapidapi-key": "AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl"
             });
-            console.log('salut')
-            let fact = response.data;
-            console.log(fact);
         }
-
         req.end(function (res) {
             if (res.error) throw new Error(res.error);
         
