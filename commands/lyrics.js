@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 var api = require('genius-api');
 var genius = new api("AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl");
-var JSSoup = require('jssoup').default;
-var request = require("request");
+var request = require("request"),
+    fs = require('fs');
 
 
 module.exports = {
@@ -27,10 +27,10 @@ module.exports = {
                     uri: URL
                 },
                 function (error, response, body) {
-                    console.log(body);
+
+                    var lyrics = body.find("div", class_ = "lyrics").get_text();
+                    console.log(lyrics);
                 });
-
-
 
         });
     }
