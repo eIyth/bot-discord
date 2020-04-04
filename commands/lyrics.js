@@ -12,7 +12,6 @@ module.exports = {
                 .query("q", args[0])
                 .header("x-rapidapi-host", "genius.p.rapidapi.com")
                 .header("x-rapidapi-key", "0878bdba20msh3a2cb883c1d7b48p153c9djsn1087d1e71043");
-            console.log(req);
             let fact = req.body;
             return fact;
         }
