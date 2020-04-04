@@ -36,6 +36,7 @@ module.exports = {
                 };
             }
 
+            getSongLyrics(response.hits[0].result.url);
 
 
             // const embed = new Discord.RichEmbed()
