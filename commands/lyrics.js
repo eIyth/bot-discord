@@ -11,12 +11,12 @@ module.exports = {
         genius.search(args[0]).then(function (response) {
 
             const embed = new Discord.RichEmbed()
-                .setColor('yellow')
+                .setColor('#ffff00')
                 .setTitle(response.hits[0].result.title)
+                .setURL(response.hits[0].result.url)
                 .setAuthor("par " +response.hits[0].result.primary_artist.name)
                 .addField( response.hits[0].result.full_title, response.hits[0].result.url)
-                .setThumbnail(response.hits[0].result.song_art_image_thumbnail_url)
-                .setImage(response.hits[0].result.song_art_image_url)
+                .setThumbnail(response.hits[0].result.song_art_image_thumbnail_url);
             message.channel.send(embed);
         });
     }
