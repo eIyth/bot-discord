@@ -28,8 +28,7 @@ module.exports = {
                 },
                 function (error, response, body) {
                     data = extractor(body);
-                    var len = body.text.length;
-                    console.log(data.text[len]);
+                    console.log(data.links.text);
                 });
 
         });
