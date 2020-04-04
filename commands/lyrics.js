@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-var api = require('genius-api');
+import  Genius from 'genius-api';
 var cheerio = require("cheerio");
 const genius = new Genius("AY45__E_qL4cCaNaXoV1krPw");
 
