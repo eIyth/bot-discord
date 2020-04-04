@@ -1,12 +1,11 @@
 const Discord = require('discord.js');
-const axios = require("axios");
 const unirest = require("unirest");
 
 
 module.exports = {
     name: "mot",
     description: "Renvoi le définition d'un mot ou un mot aleatoire",
-    usage : "mot rnd | mot def example",
+    usage: "mot rnd | mot def example",
     run: async (client, message, args) => {
         if (args[1] === 'def') {
             let getMot = async () => {
@@ -38,23 +37,13 @@ module.exports = {
                 return def;
             }
 
-            try {
-                let motDefRnd = await getMotRnd();
-                const embed = new Discord.RichEmbed()
-                    .setColor('red')
-                    .setTitle("Mot aléatoire")
-                    .addField('Savez-vous que veut-dire : ', motDefRnd.word)
-                    .addField('Définition :', motDefRnd.results[0].definition);
-                message.channel.send(embed);
-            } catch {
-                let motDefRnd = await getMotRnd();
-                const embed = new Discord.RichEmbed()
-                    .setColor('red')
-                    .setTitle("Mot aléatoire")
-                    .addField('Savez-vous que veut-dire : ', motDefRnd.word)
-                    .addField('Définition','franchement : je sais pas');
-                message.channel.send(embed);
-            }
+            let motDefRnd = await getMotRnd();
+            const embed = new Discord.RichEmbed()
+                .setColor('red')
+                .setTitle("Mot aléatoire")
+                .addField('Savez-vous que veut-dire : ', motDefRnd.word)
+                .addField('Définition :', motDefRnd.results[0].definition);
+            message.channel.send(embed);
         } else {
             const embed = new Discord.RichEmbed()
                 .setColor('grey')
