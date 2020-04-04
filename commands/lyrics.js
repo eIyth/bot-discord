@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
-import  Genius from 'genius-api';
+var api = require('genius-api');
+var genius = new api("AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl");
 var cheerio = require("cheerio");
-const genius = new Genius("AY45__E_qL4cCaNaXoV1krPw");
 
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     run: async (client, message, args) => {
         genius.search(JSON.stringify(args)).then(function (response) {
 
-            Genius.prototype.getSongLyrics = function getSongLyrics(geniusUrl) {
+            genius.prototype.getSongLyrics = function getSongLyrics(geniusUrl) {
                 return fetch(geniusUrl, {
                   method: 'GET',
                 })
