@@ -12,13 +12,8 @@ module.exports = {
         genius.search(JSON.stringify(args)).then(function (response) {
             var retour = "";
             fetch(response.hits[0].result.url)
-                .then(res => {
-                    retour = res.text();
-                    console.log(retour);
-                    const $ = cheerio.load(retour);
-                    const lyrics = $('.lyrics').text();
-                    console.log(lyrics);
-                })
+                .then(res => res.text()
+                .then(console.log(res));
 
 
             // const embed = new Discord.RichEmbed()
