@@ -8,7 +8,8 @@ module.exports = {
     description: "Renvoi les paroles d'une musique",
     usage: 'lyrics nom',
     run: async (client, message, args) => {
-        genius.search(args[0]).then(function (response) {
+        args = message.content.slice(prefix.length).split(/ +/);
+        genius.search(args).then(function (response) {
 
             const embed = new Discord.RichEmbed()
                 .setColor('#ffff00')
