@@ -19,14 +19,14 @@ module.exports = {
             .setColor('#0099ff')
             .setTitle("Paroles de "+args[1])
             .addField(args[1]+" par "+args[0], "Desole le message est trop long (>2000 caracteres)")
-            messaage.channel.send(embed);
+            message.channel.send(embed);
         }
         else {
             const embed = new Discord.RichEmbed()
             .setColor('#0099ff')
             .setTitle("Paroles de "+args[1])
             .addField(args[1]+" par "+args[0], lyricsValue.lyrics)
-            messaage.channel.send(embed);
+            message.channel.send(embed);
         }
     }
 }
