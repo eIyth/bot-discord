@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-var unirest = require("unirest");
+var api = require('genius-api');
+var genius = new api("AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl");
 
 
 module.exports = {
@@ -7,14 +8,9 @@ module.exports = {
     description: "Renvoi les paroles d'une musique",
     usage: 'lyrics nom',
     run: async (client, message, args) => {
-        let getLyrics = async () => {
-            var req = await unirest.get("https://api.genius.com/search?q="=args[0])
-                .header("Authorization", "Bearer AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl");
-            let lyrics = req.body;
-            return lyrics;
-        }
-        let lyricsValue = await getLyrics();
-        console.log(lyricsValue);
+        genius.search(args[0]).then(function(response) {
+            console.log('hits', response.hits);
+        });
 
         // const embed = new Discord.RichEmbed()
         //     .setColor('grey')
