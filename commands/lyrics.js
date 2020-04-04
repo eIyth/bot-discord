@@ -13,12 +13,20 @@ module.exports = {
             console.log(fact);
             return fact
         }
-        let factValue = await getLrycis();
-        if(factValue.lyrics,length>2000){
-            messaage.channel.send("desole le message est trop gros (>2000 caracteres)");
+        let lyricsValue = await getLyrics();
+        if(lyricsValue.lyrics,length>2000){
+            const embed = new Discord.RichEmbed()
+            .setColor('#0099ff')
+            .setTitle("Paroles de "+args[1])
+            .addField(args[1]+" par "+args[0], "Desole le message est trop long (>2000 caracteres)")
+            messaage.channel.send(embed);
         }
         else {
-            message.channel.send(factValue.lyrics);
+            const embed = new Discord.RichEmbed()
+            .setColor('#0099ff')
+            .setTitle("Paroles de "+args[1])
+            .addField(args[1]+" par "+args[0], lyricsValue.lyrics)
+            messaage.channel.send(embed);
         }
     }
 }
