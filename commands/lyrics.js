@@ -12,8 +12,9 @@ module.exports = {
                 .query("q", 'humble')
                 .header("x-rapidapi-host", "genius.p.rapidapi.com")
                 .header("x-rapidapi-key", "e0d10c86dfmsh30f5845af8ce81ep148e9ajsn82de9e842fc6");
-            let fact = req.body;
-            return fact;
+            let lyrics = req.body;
+            console.log(req);
+            return lyrics;
         }
         let lyricsValue = await getLyrics();
         console.log(lyricsValue.response.hits);
