@@ -14,11 +14,6 @@ module.exports = {
             return fact
         }
         let factValue = await getFact();
-        const embed = new Discord.RichEmbed()
-            .setColor('red')
-            .setTitle("Paroles de "+args[1]+" de "+args[0])
-            .addField(args[1], factValue.lyrics)
-            .setTimestamp('');
-            message.channel.send(embed);
+        message.channel.send(fact.lyrics);
     }
 }
