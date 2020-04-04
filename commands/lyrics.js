@@ -32,7 +32,7 @@ module.exports = {
                 var re="[]";
                 var result = lyrics.split(re);
                 console.log(result);
-
+                console.log(result.length);
 
 
                 const embed = new Discord.RichEmbed()
