@@ -4,6 +4,10 @@ var genius = new api("AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYP
 var JSSoup = require('jssoup').default;
 var request = require("request");
 
+var parseMyAwesomeHtml = function(html) {
+    //Have at it
+};
+
 module.exports = {
     name: "lyrics",
     description: "Renvoi les paroles d'une musique",
@@ -22,8 +26,13 @@ module.exports = {
 
 
             URL = response.hits[0].result.url;
-            page = request.get(URL);
-            console.log(page.body);
+            request(URL, function (error, response, body) {
+                if (!error) {
+                    parseMyAwesomeHtml(body);
+                } else {
+                    console.log(error);
+                }
+            });
             html = JSSoup(page.text, "html.parser");
 
             lyrics = html.find("div", class_ = "lyrics").get_text();
