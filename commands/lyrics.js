@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 var api = require('genius-api');
 var genius = new api("AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl");
 var cheerio = require("cheerio");
-
+const fetch = require('node-fetch');
 
 module.exports = {
     name: "lyrics",
