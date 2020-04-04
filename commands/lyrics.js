@@ -20,6 +20,7 @@ module.exports = {
                         const lyrics = $('.lyrics').text();
                         console.log(lyrics);
                     };
+                }
 
 
             // const embed = new Discord.RichEmbed()
