@@ -30,7 +30,7 @@ module.exports = {
                 const lyrics = $('.lyrics').text();
 
                 var re="[]";
-                var result = str.split(re);
+                var result = lyrics.split(re);
                 console.log(result);
 
 
