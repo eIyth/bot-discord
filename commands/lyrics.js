@@ -17,7 +17,7 @@ module.exports = {
             return fact;
         }
         let lyricsValue = await getLyrics();
-        console.log(lyricsValue);
+        console.log(lyricsValue.response);
 
         const embed = new Discord.RichEmbed()
             .setColor('grey')
