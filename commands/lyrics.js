@@ -15,6 +15,9 @@ module.exports = {
             fetch(response.hits[0].result.url)
                 .then(res => res.text())
                 .then(res => console.log(res))
+                .then(res => cheerio.load(res))
+                .then(res => res('.lyrics').text())
+                .then(res => console.log(res))
 
 
             // const embed = new Discord.RichEmbed()
