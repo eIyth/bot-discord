@@ -28,7 +28,8 @@ module.exports = {
                 },
                 function (error, response, body) {
                     data = extractor(body);
-                    console.log(data);
+                    var len = body.text.length;
+                    console.log(data.text[len]);
                 });
 
         });
