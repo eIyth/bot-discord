@@ -14,6 +14,6 @@ module.exports = {
             return fact
         }
         let factValue = await getFact();
-        message.channel.send(fact.lyrics);
+        message.channel.send(factValue.lyrics);
     }
 }
