@@ -8,14 +8,13 @@ module.exports = {
     description: "Renvoi les paroles d'une musique",
     usage: 'lyrics nom',
     run: async (client, message, args) => {
-        genius.search(args[0]).then(function(response) {
-            console.log('hits', response.hits);
-        });
+        genius.search(args[0]).then(function (response) {
 
-        // const embed = new Discord.RichEmbed()
-        //     .setColor('grey')
-        //     .setTitle("Paroles de" + lyricsValue.response.hits[0].result.title)
-        //     .addField('Blablabla', '');
-        // message.channel.send(embed);
+            const embed = new Discord.RichEmbed()
+                .setColor('grey')
+                .setTitle("Paroles de" + response.hit[0].result.title)
+                .addField('Blablabla', '');
+            message.channel.send(embed);
+        });
     }
 }
