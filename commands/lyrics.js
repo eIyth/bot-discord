@@ -10,15 +10,17 @@ module.exports = {
     usage: 'lyrics nom',
     run: async (client, message, args) => {
         genius.search(JSON.stringify(args)).then(function (response) {
-            var res="";
+            var retour="";
             fetch(response.hits[0].result.url)
-                .then(res => res.text());
+                .then( res => {
+                    if(res.ok){
+                        retour = res.text();
+                        console.log(retour);
+                        const $ = cheerio.load(retour);
+                        const lyrics = $('.lyrics').text();
+                        console.log(lyrics);
+                    };
 
-
-            console.log(res);
-            const $ = cheerio.load(res);
-            const lyrics = $('.lyrics').text();
-            console.log(lyrics);
 
             // const embed = new Discord.RichEmbed()
             //     .setColor('#ffff00')
