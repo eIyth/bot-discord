@@ -19,23 +19,23 @@ module.exports = {
                         method: 'GET',
                     })
                     .then(response => {
-                        if (response.ok) return response.text()
+                        if (response.ok) return response.text();
                         throw new Error('Could not get song url ...')
                     })
-                    .then(parseSongHTML)
-            }
+                    .then(parseSongHTML);
+            };
 
             function parseSongHTML(htmlText) {
-                const $ = cheerio.load(htmlText)
-                const lyrics = $('.lyrics').text()
-                const releaseDate = $('release-date .song_info-info').text()
+                const $ = cheerio.load(htmlText);
+                const lyrics = $('.lyrics').text();
+                const releaseDate = $('release-date .song_info-info').text();
+                console.log(lyrics);
                 return {
                     lyrics,
                     releaseDate,
-                }
+                };
             }
 
-            console.log(getSongLyrics(response.hits[0].result.url));
 
 
             // const embed = new Discord.RichEmbed()
