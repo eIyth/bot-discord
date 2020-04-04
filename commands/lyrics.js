@@ -12,13 +12,9 @@ module.exports = {
         genius.search(JSON.stringify(args)).then(function (response) {
             var res="";
             console.log(response.hits[0].result.url);
-            fetch(response.hits[0].result.url, {
-                    method: 'GET',
-                })
-                .then(response1 => {
-                    if (response1.ok) res= response1.text()
-                    throw new Error('Could not get song url ...');
-                })
+            fetch(response.hits[0].result.url)
+                .then(res => res.text())
+                .then(body => console.log(body));
 
             const $ = cheerio.load(res);
             const lyrics = $('.lyrics').text();
