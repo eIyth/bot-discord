@@ -4,7 +4,7 @@ const { stripIndents } = require("common-tags");
 module.exports = {
     name: "help",
     description: "Renvoi des infos sur les commandes",
-    usage: "[command | alias]",
+    usage: "help command",
     run: async (client, message, args) => {
         if (args[0]) {
             return getCMD(client, message, args[0]);
@@ -48,7 +48,6 @@ function getCMD(client, message, input) {
     if (cmd.description) info += `\n**Description**: ${cmd.description}`;
     if (cmd.usage) {
         info += `\n**Usage**: ${cmd.usage}`;
-        embed.setFooter(`Syntax: <> = required, [] = optional`);
     }
 
     return message.channel.send(embed.setColor("GREEN").setDescription(info));

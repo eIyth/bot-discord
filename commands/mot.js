@@ -6,6 +6,7 @@ const unirest = require("unirest");
 module.exports = {
     name: "mot",
     description: "Renvoi le définition d'un mot ou un mot aleatoire",
+    usage : "mot rnd | mot def example",
     run: async (client, message, args) => {
         if (args[1] === 'def') {
             let getMot = async () => {

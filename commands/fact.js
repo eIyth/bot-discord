@@ -5,6 +5,7 @@ const axios = require("axios");
 module.exports = {
     name: "fact",
     description: "Renvoi une fact random ou le fact du jour",
+    usage : 'fact jour | fact',
     run: async (client, message, args) => {
         if (args[0] === 'jour') {
             let getFact = async () => {
