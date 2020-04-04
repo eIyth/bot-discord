@@ -29,7 +29,7 @@ module.exports = {
                 function (error, response, body) {
                     data = extractor(body);
                     var res = data.text.split("[");
-                    console.log9(res);
+                    console.log(res);
                 });
 
         });
