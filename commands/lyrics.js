@@ -14,6 +14,8 @@ module.exports = {
             fetch(response.hits[0].result.url)
                 .then(res => res.text());
 
+
+            console.log(res);
             const $ = cheerio.load(res);
             const lyrics = $('.lyrics').text();
             console.log(lyrics);
