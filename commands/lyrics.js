@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const axios = require("axios");
+var unirest = require("unirest");
 
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
     usage: 'lyrics artist musique',
     run: async (client, message, args) => {
         let getLyrics = async () => {
-            var req = unirest("GET", "https://genius.p.rapidapi.com/search/" + args[0]);
+            var req = unirest("GET", "https://genius.p.rapidapi.com/search/"+args[0]);
 
             req.headers({
                 "x-rapidapi-host": "genius.p.rapidapi.com",
