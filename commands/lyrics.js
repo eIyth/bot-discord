@@ -8,7 +8,7 @@ module.exports = {
     usage: 'lyrics nom',
     run: async (client, message, args) => {
         let getLyrics = async () => {
-            var req = await unirest.get("api.genius.com/search?q="=args[0])
+            var req = await unirest.get("https://api.genius.com/search?q="=args[0])
                 .header("Authorization", "Bearer AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl");
             let lyrics = req.body;
             return lyrics;
