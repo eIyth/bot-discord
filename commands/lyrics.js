@@ -5,13 +5,13 @@ var unirest = require("unirest");
 module.exports = {
     name: "lyrics",
     description: "Renvoi les paroles d'une musique",
-    usage: 'lyrics artist musique',
+    usage: 'lyrics nom',
     run: async (client, message, args) => {
         let getLyrics = async () => {
             var req = await unirest.get("https://genius.p.rapidapi.com/search/")
                 .query("q", args[0])
                 .header("x-rapidapi-host", "genius.p.rapidapi.com")
-                .header("x-rapidapi-key", "0878bdba20msh3a2cb883c1d7b48p153c9djsn1087d1e71043");
+                .header("x-rapidapi-key", "e0d10c86dfmsh30f5845af8ce81ep148e9ajsn82de9e842fc6");
             let fact = req.body;
             return fact;
         }
