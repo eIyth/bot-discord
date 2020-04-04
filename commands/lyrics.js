@@ -23,19 +23,13 @@ module.exports = {
 
 
             URL = response.hits[0].result.url;
-            request(URL, function (error, response, body) {
-                if (!error) {
-                    parseMyAwesomeHtml(body);
-                } else {
-                    console.log(error);
-                }
-            });
+            request({
+                    uri: URL
+                },
+                function (error, response, body) {
+                    console.log(body);
+                });
 
-            var parseMyAwesomeHtml = function(html) {
-                console.log(html);
-            };
-            
-          
 
 
         });
