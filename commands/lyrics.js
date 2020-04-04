@@ -30,6 +30,19 @@ module.exports = {
                     data = extractor(body);
                     var res = data.text.split("[");
                     console.log(res);
+                    const embed = new Discord.RichEmbed()
+                    .setColor('#ffff00')
+                    .setTitle(response.hits[0].result.title)
+                    .setURL(response.hits[0].result.url)
+                    .setAuthor("par " + response.hits[0].result.primary_artist.name)
+                    .addField(response.hits[0].result.full_title, response.hits[0].result.url)
+                    .setThumbnail(response.hits[0].result.song_art_image_thumbnail_url)
+                    for (let i = 1; i < res.length; i++) {
+                        embed.addField('Couplet '+ i, res[i])
+                    }
+                    message.channel.send(embed);
+
+
                 });
 
         });
