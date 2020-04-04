@@ -14,7 +14,7 @@ module.exports = {
             return fact
         }
         let lyricsValue = await getLyrics();
-        if(lyricsValue.lyrics,length>2000){
+        if(lyricsValue.lyrics,length()>2000){
             const embed = new Discord.RichEmbed()
             .setColor('#0099ff')
             .setTitle("Paroles de "+args[1])
