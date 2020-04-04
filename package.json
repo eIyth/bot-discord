@@ -16,6 +16,7 @@
     "dotenv": "^8.2.0",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.0.1",
+    "jssoup": "0.0.11",
     "node-fetch": "^2.6.0",
     "opusscript": "0.0.7",
     "unirest": "^0.6.0",
