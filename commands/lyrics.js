@@ -7,29 +7,19 @@ module.exports = {
     description: "Renvoi les paroles d'une musique",
     usage: 'lyrics nom',
     run: async (client, message, args) => {
-        var req = unirest("GET", "https://genius.p.rapidapi.com/search/");
-        req.query({
-            "q": "humble"
-        });
-        req.headers({
-            "x-rapidapi-host": "genius.p.rapidapi.com",
-            "x-rapidapi-key": "0878bdba20msh3a2cb883c1d7b48p153c9djsn1087d1e71043"
-        });
-
-        req.end(function (res) {
-            if (res.error) throw new Error(res.error);
-            let lyrics = res.body;
+        let getLyrics = async () => {
+            var req = await unirest.get("api.genius.com/search?q="=args[0])
+                .header("Authorization", "Bearer AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl");
+            let lyrics = req.body;
             return lyrics;
-            console.log(res.body);
-            let lyricsValue = lyrics.response;
-            console.log(lyricsValue.response.hits);
-        });
+        }
+        let lyricsValue = await getLyrics();
+        console.log(lyricsValue);
 
-
-        const embed = new Discord.RichEmbed()
-            .setColor('grey')
-            .setTitle("Paroles de" + lyricsValue.response.hits[0].result.title)
-            .addField('Blablabla', '');
-        message.channel.send(embed);
+        // const embed = new Discord.RichEmbed()
+        //     .setColor('grey')
+        //     .setTitle("Paroles de" + lyricsValue.response.hits[0].result.title)
+        //     .addField('Blablabla', '');
+        // message.channel.send(embed);
     }
 }
