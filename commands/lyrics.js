@@ -23,7 +23,7 @@ module.exports = {
 
             URL = response.hits[0].result.url;
             page = request.get(URL);
-
+            console.log(page);
             html = JSSoup(page.text, "html.parser");
 
             lyrics = html.find("div", class_ = "lyrics").get_text();
