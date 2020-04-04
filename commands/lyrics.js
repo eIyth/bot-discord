@@ -20,8 +20,6 @@ module.exports = {
             message.channel.send(embed);
 
 
-            path = connect_lyrics(song_id)
-
             URL = response.hits[0].result.url;
             page = requests.get(URL)
 
