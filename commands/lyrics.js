@@ -28,7 +28,7 @@ module.exports = {
                 },
                 function (error, response, body) {
                     data = extractor(body);
-                    console.log(data.links.text);
+                    console.log(data.text);
                 });
 
         });
