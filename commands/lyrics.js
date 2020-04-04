@@ -20,19 +20,16 @@ module.exports = {
                 .addField(response.hits[0].result.full_title, response.hits[0].result.url)
                 .setThumbnail(response.hits[0].result.song_art_image_thumbnail_url);
             message.channel.send(embed);
-
-
-            URL = response.hits[0].result.url;
-            request({
-                    uri: URL
-                },
-                function (error, response, body) {
-                    data = extractor(body);
-                    var res = data.text.split("[");
-                    for (let i = 1; i < res.length; i++) {
-                        message.channel.send('Couplet '+ i, res[i]);
-                    }
-                });
+            
+            // URL = response.hits[0].result.url;
+            // request({
+            //         uri: URL
+            //     },
+            //     function (error, response, body) {
+            //         data = extractor(body);
+            //         var res = data.text.split("[");
+            //         console
+            //     });
 
         });
     }
