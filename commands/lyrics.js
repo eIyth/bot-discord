@@ -21,10 +21,10 @@ module.exports = {
             let lyrics = res.body;
             return lyrics;
             console.log(res.body);
+            let lyricsValue = lyrics.response;
+            console.log(lyricsValue.response.hits);
         });
 
-        let lyricsValue = lyrics.response;
-        console.log(lyricsValue.response.hits);
 
         const embed = new Discord.RichEmbed()
             .setColor('grey')
