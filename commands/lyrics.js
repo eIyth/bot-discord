@@ -4,9 +4,6 @@ var genius = new api("AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYP
 var JSSoup = require('jssoup').default;
 var request = require("request");
 
-var parseMyAwesomeHtml = function(html) {
-    //Have at it
-};
 
 module.exports = {
     name: "lyrics",
@@ -33,10 +30,14 @@ module.exports = {
                     console.log(error);
                 }
             });
-            html = JSSoup(page.text, "html.parser");
 
-            lyrics = html.find("div", class_ = "lyrics").get_text();
-            console.log(lyrics);
+            var parseMyAwesomeHtml = function(html) {
+                lyrics = html.find("div", class_ = "lyrics").get_text();
+                console.log(lyrics);
+            };
+
+           
+            
         });
     }
 }
