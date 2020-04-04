@@ -29,20 +29,9 @@ module.exports = {
                 function (error, response, body) {
                     data = extractor(body);
                     var res = data.text.split("[");
-                    console.log(res);
-                    const embed = new Discord.RichEmbed()
-                    .setColor('#ffff00')
-                    .setTitle("Test")
-                    .setURL("Test")
-                    .setAuthor("Test")
-                    .addField("TEST")
-                    .setThumbnail("TEST")
                     for (let i = 1; i < res.length; i++) {
-                        embed.addField('Couplet '+ i, res[i])
+                        message.channel.send('Couplet '+ i, res[i]);
                     }
-                    message.channel.send(embed);
-
-
                 });
 
         });
