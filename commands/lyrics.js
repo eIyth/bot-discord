@@ -28,7 +28,8 @@ module.exports = {
                 },
                 function (error, response, body) {
                     data = extractor(body);
-                    console.log(data.text);
+                    var res = data.text.split("[");
+                    console.log9(res);
                 });
 
         });
