@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 var api = require('genius-api');
-var genius = new api("AY45__E_qL4cCaNaXoV1krPw-5TqqduhcKExOsmHDVMIJixlEQQeFAegYPsNrHhl");
 var cheerio = require("cheerio");
+const genius = new Genius("AY45__E_qL4cCaNaXoV1krPw");
+
 
 module.exports = {
     name: "lyrics",
@@ -10,15 +11,15 @@ module.exports = {
     run: async (client, message, args) => {
         genius.search(JSON.stringify(args)).then(function (response) {
 
-            genius.prototype.getSongLyrics = async function getSongLyrics(geniusUrl) {
-                const response = await fetch(geniusUrl, {
-                    method: 'GET',
-                });
-                if (response.ok)
-                    return response.text();
-                throw new Error('Could not get song url ...');
-                const htmlText = undefined;
-                return parseSongHTML(htmlText);
+            Genius.prototype.getSongLyrics = function getSongLyrics(geniusUrl) {
+                return fetch(geniusUrl, {
+                  method: 'GET',
+                })
+                .then(response => {
+                  if (response.ok) return response.text()
+                  throw new Error('Could not get song url ...');
+                })
+                .then(parseSongHTML);
               };
 
               function parseSongHTML(htmlText) {
@@ -30,7 +31,7 @@ module.exports = {
                   releaseDate,
                 };
               };
-
+              console.log(response.hits[0].result.url)
               console.log(getSongLyrics(response.hits[0].result.url));
 
 
