@@ -25,7 +25,7 @@ module.exports = {
             });
             
         }
-        let lyricsValue = await getLyrics();
+        let lyricsValue = getLyrics();
         console.log(lyricsValue.response.hits);
 
         const embed = new Discord.RichEmbed()
