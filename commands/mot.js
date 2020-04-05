@@ -7,7 +7,7 @@ module.exports = {
     description: "Renvoi le définition d'un mot ou un mot aleatoire",
     usage: "mot rnd | mot def example",
     run: async (client, message, args) => {
-        if (args[1] === 'def') {
+        if (args[0] === 'def') {
             let getMot = async () => {
                 let response = await unirest.get("https://wordsapiv1.p.mashape.com/words/" + args[1])
                     .header("X-Mashape-Key", process.env.TOKEN_WORDAPI)
