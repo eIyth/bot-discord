@@ -15,7 +15,16 @@ module.exports = {
 
             const re = /\[[^)]*?\]/g
             const result = lyrics.split(re);
-            console.log(result);
+            
+            const embed = new Discord.RichEmbed()
+                .setColor('#ffff00')
+                .setTitle("Parole de "+ JSON.stringify(args))
+                .setURL(url);
+                for (let i = 1; i < lyrics.length; i++) {
+                    embed.addField('Couplet' + i, lyrics[i])
+                }
+            
+                message.channel.send(embed);
 
 
             //     const embed = new Discord.RichEmbed()
