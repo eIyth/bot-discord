@@ -29,7 +29,7 @@ module.exports = {
                 } 
                 message.channel.send(embed);
             }
-            catch {
+            catch (e){
                 const embed = new Discord.RichEmbed()
                 .setColor('#ffff00')
                 .setTitle("Paroles de "+all.title )
