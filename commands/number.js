@@ -22,7 +22,7 @@ module.exports = {
                 .setTitle("Fact sur un nombre random")
                 .addField('Le saviez vous ? ', numberFact);
             message.channel.send(embed);
-        } else {
+        } else if (!isNaN(args[0])) {
             let getMot = async () => {
                 let response = await unirest.get("http://numbersapi.com/" + args[0] + "/math")
                     .header("X-Mashape-Key", process.env.TOKEN_WORDAPI)
@@ -32,19 +32,11 @@ module.exports = {
             }
             let numberFact = await getMot();
 
-            try {
-                const embed = new Discord.RichEmbed()
-                    .setColor('blue')
-                    .setTitle("Fact sur " + args[0])
-                    .addField('Le saviez vous ? ', numberFact);
-                message.channel.send(embed);
-            } catch (e) {
-                const embed = new Discord.RichEmbed()
-                    .setColor('blue')
-                    .setTitle("Fact sur " + args[0])
-                    .addField('Mauvaise utilisation de la commade !', "Veuilleaz saisir un chiffre");
-                message.channel.send(embed);
-            }
+            const embed = new Discord.RichEmbed()
+                .setColor('blue')
+                .setTitle("Fact sur " + args[0])
+                .addField('Le saviez vous ? ', numberFact);
+            message.channel.send(embed);
         }
     }
 
