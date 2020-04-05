@@ -17,6 +17,7 @@ module.exports = {
         const result = lyrics.split(re);
         const reVerse =  /\[(.*?)\]/g
         const verse = lyrics.split(reVerse);
+        console.log(verse);
 
         try {
             const embed = new Discord.RichEmbed()
