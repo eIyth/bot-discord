@@ -18,7 +18,7 @@ module.exports = {
             
             const embed = new Discord.RichEmbed()
                 .setColor('#ffff00')
-                .setTitle("Parole de "+ JSON.stringify(args))
+                .setTitle("Parole de "+ JSON.stringify(args).toString())
                 .setURL(url);
                 for (let i = 1; i < result.length; i++) {
                     embed.addField("Couplet "+i,result[i]);
