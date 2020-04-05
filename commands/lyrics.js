@@ -11,7 +11,8 @@ module.exports = {
 
             const url = await Genius.getUrl(JSON.stringify(args));
             const lyricsJSON = await Genius.getLyrics(url);
-            console.log(lyricsJSON);
+            const lyrics = lyricsJSON.lyrics;
+            console.log(lyrics);
 
             // function getSongLyrics(geniusUrl) {
             //     return fetch(geniusUrl, {
