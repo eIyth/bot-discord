@@ -28,7 +28,7 @@ module.exports = {
             function parseSongHTML(htmlText) {
                 const $ = cheerio.load(htmlText);
                 const lyrics = $('.lyrics').text();
-
+                console.log(lyrics);
                 var result = lyrics.split("\\[");
                 console.log(result);
                 console.log(result.length);
