@@ -21,7 +21,9 @@ module.exports = {
             
             const embed = new Discord.RichEmbed()
                 .setColor('#ffff00')
-                .setTitle("Paroles de "+all.title + " par " + all.name)
+                .setTitle("Paroles de "+all.title )
+                .setAuthor("par "+ all.primary_artist.name)
+                .setThumbnail(primary_artist.image_url)
                 .setURL(url);
                 for (let i = 1; i < result.length; i++) {
                     embed.addField("Couplet "+i,result[i]);
