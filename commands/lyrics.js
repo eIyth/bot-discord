@@ -29,26 +29,25 @@ module.exports = {
                 const $ = cheerio.load(htmlText);
                 const lyrics = $('.lyrics').text();
 
-                var re = /[([^@]*(?:@[^@]+)*)]/
-                var result = lyrics.split(re);
+                var result = lyrics.split("\\[\\]");
                 console.log(result);
                 console.log(result.length);
 
 
                 const embed = new Discord.RichEmbed()
-                .setColor('#ffff00')
-                .setTitle(response.hits[0].result.title)
-                .setURL(response.hits[0].result.url)
-                .setAuthor("par " + response.hits[0].result.primary_artist.name)
-                .addField(response.hits[0].result.full_title, response.hits[0].result.url)
-                .setThumbnail(response.hits[0].result.song_art_image_thumbnail_url);
-            message.channel.send(embed);
+                    .setColor('#ffff00')
+                    .setTitle(response.hits[0].result.title)
+                    .setURL(response.hits[0].result.url)
+                    .setAuthor("par " + response.hits[0].result.primary_artist.name)
+                    .addField(response.hits[0].result.full_title, response.hits[0].result.url)
+                    .setThumbnail(response.hits[0].result.song_art_image_thumbnail_url);
+                message.channel.send(embed);
             }
 
             getSongLyrics(response.hits[0].result.url);
 
 
-            
+
 
             // URL = response.hits[0].result.url;
             // request({
