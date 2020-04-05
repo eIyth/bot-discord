@@ -29,7 +29,7 @@ module.exports = {
                 const $ = cheerio.load(htmlText);
                 const lyrics = $('.lyrics').text();
 
-                var pattern = "(\[(?:.*?)\])";
+                var re = "(\[(?:.*?)\])";
                 var result = lyrics.split(re);
                 console.log(result);
                 console.log(result.length);
