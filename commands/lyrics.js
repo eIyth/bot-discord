@@ -24,22 +24,12 @@ module.exports = {
                 .setTitle("Paroles de "+all.title )
                 .setAuthor("par "+ all.primary_artist.name)
                 .setThumbnail(all.song_art_image_thumbnail_url)
-                .setURL(url);
+                .setURL(url)
+                .setDescription("Vous pouvez retrouver le lien des paroles en cliquant sur le nom de la musique en haut");
                 for (let i = 1; i < result.length; i++) {
                     embed.addField("Couplet "+i,result[i]);
                 }
             
                 message.channel.send(embed);
-
-
-            //     const embed = new Discord.RichEmbed()
-            //         .setColor('#ffff00')
-            //         .setTitle(response.hits[0].result.title)
-            //         .setURL(response.hits[0].result.url)
-            //         .setAuthor("par " + response.hits[0].result.primary_artist.name)
-            //         .addField(response.hits[0].result.full_title, response.hits[0].result.url)
-            //         .setThumbnail(response.hits[0].result.song_art_image_thumbnail_url);
-            //     message.channel.send(embed);
-            // }
     }
 }
