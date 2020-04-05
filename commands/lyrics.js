@@ -8,8 +8,8 @@ module.exports = {
     usage: 'lyrics nom',
     run: async (client, message, args) => {
 
-
-            const url = await Genius.getUrl(JSON.stringify(args));
+            const search = await Genius.findTrack(JSON.stringify(args));
+            const url = await Genius.getUrl(search);
             const lyricsJSON = await Genius.getLyrics(url);
             const lyrics = lyricsJSON.lyrics;
             console.log(lyrics);
