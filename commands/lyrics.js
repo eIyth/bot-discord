@@ -12,26 +12,10 @@ module.exports = {
             const url = await Genius.getUrl(search);
             const lyricsJSON = await Genius.getLyrics(url);
             const lyrics = lyricsJSON.lyrics;
-            console.log(lyricsJSON);
-
-            // function getSongLyrics(geniusUrl) {
-            //     return fetch(geniusUrl, {
-            //             method: 'GET',
-            //         })
-            //         .then(response => {
-            //             if (response.ok) return response.text();
-            //             throw new Error('Could not get song url ...')
-            //         })
-            //         .then(parseSongHTML);
-            // };
-
-            // function parseSongHTML(htmlText) {
-            //     const $ = cheerio.load(htmlText);
-            //     const lyrics = $('.lyrics').text();
-            //     console.log(lyrics);
-            //     var result = lyrics.split("\\[");
-            //     console.log(result);
-            //     console.log(result.length);
+            
+            const re = /[\\[\\]]+/
+            const result = lyrics.split(re);
+            console.log(result);
 
 
             //     const embed = new Discord.RichEmbed()
@@ -43,21 +27,5 @@ module.exports = {
             //         .setThumbnail(response.hits[0].result.song_art_image_thumbnail_url);
             //     message.channel.send(embed);
             // }
-
-            // getSongLyrics(response.hits[0].result.url);
-
-
-
-
-            // URL = response.hits[0].result.url;
-            // request({
-            //         uri: URL
-            //     },
-            //     function (error, response, body) {
-            //         data = extractor(body);
-            //         var res = data.text.split("[");
-            //         console
-            //     });
-
     }
 }
