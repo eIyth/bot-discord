@@ -10,7 +10,7 @@ module.exports = {
         if (args[1] === 'def') {
             let getMot = async () => {
                 let response = await unirest.get("https://wordsapiv1.p.mashape.com/words/" + args[1])
-                    .header("X-Mashape-Key", "e0d10c86dfmsh30f5845af8ce81ep148e9ajsn82de9e842fc6")
+                    .header("X-Mashape-Key", TOKEN_WORDAPI)
                     .header("Accept", "application/json");
                 let def = response.body;
                 return def;
@@ -32,7 +32,7 @@ module.exports = {
         } else if (args[0] === 'rnd') {
             let getMotRnd = async () => {
                 let response = await unirest.get("https://wordsapiv1.p.mashape.com/words/?random=true")
-                    .header("X-Mashape-Key", "e0d10c86dfmsh30f5845af8ce81ep148e9ajsn82de9e842fc6");
+                    .header("X-Mashape-Key", TOKEN_WORDAPI);
                 let def = response.body;
                 return def;
             }
@@ -44,15 +44,6 @@ module.exports = {
                 .addField('Savez-vous que veut-dire : ', motDefRnd.word)
                 .addField('Définition :', motDefRnd.results[0].definition);
             message.channel.send(embed);
-        } else {
-            const embed = new Discord.RichEmbed()
-                .setColor('grey')
-                .setTitle("Possibilté de commande mot")
-                .addField("Avoir la définition d'un mot", '>mot def example')
-                .addField("Avoir les synonymes d'un mot", '>mot syn example')
-                .addField("Avoir un mot aleatoire", '>mot rnd');
-            message.channel.send(embed);
         }
-
     }
 }
