@@ -12,7 +12,7 @@ module.exports = {
             const url = await Genius.getUrl(search);
             const lyricsJSON = await Genius.getLyrics(url);
             const lyrics = lyricsJSON.lyrics;
-            console.log(lyrics);
+            console.log(lyricsJSON);
 
             // function getSongLyrics(geniusUrl) {
             //     return fetch(geniusUrl, {
