@@ -21,7 +21,7 @@ module.exports = {
                 .setTitle("Parole de "+ JSON.stringify(args))
                 .setURL(url);
                 for (let i = 1; i < result.length; i++) {
-                    console.log(result[i])
+                    embed.addField("Couplet "+i,result[i]);
                 }
             
                 message.channel.send(embed);
