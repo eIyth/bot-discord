@@ -23,7 +23,7 @@ module.exports = {
                 .setColor('#ffff00')
                 .setTitle("Paroles de "+all.title )
                 .setAuthor("par "+ all.primary_artist.name)
-                .setThumbnail(all.song_art_mage_thumbnail_url)
+                .setThumbnail(all.song_art_image_thumbnail_url)
                 .setURL(url);
                 for (let i = 1; i < result.length; i++) {
                     embed.addField("Couplet "+i,result[i]);
