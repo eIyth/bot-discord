@@ -12,8 +12,8 @@ module.exports = {
             const url = await Genius.getUrl(search);
             const lyricsJSON = await Genius.getLyrics(url);
             const lyrics = lyricsJSON.lyrics;
-            
-            const re = /[\\[\\]]+/
+
+            const re = /\[[^)]*?\]/g
             const result = lyrics.split(re);
             console.log(result);
 
