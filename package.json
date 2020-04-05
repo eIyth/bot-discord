@@ -9,7 +9,6 @@
   "author": "elyth",
   "license": "ISC",
   "dependencies": {
-    "ascii-table": "0.0.9",
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
     "common-tags": "^1.8.0",
@@ -18,12 +17,12 @@
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.0.1",
     "genius": "0.0.2",
+    "genius-lyrics": "^1.0.9",
     "jssoup": "0.0.11",
     "lyrics": "0.0.1",
     "node-fetch": "^2.6.0",
     "opusscript": "0.0.7",
     "unfluff": "^3.2.0",
     "unirest": "^0.6.0",
-    "ytdl-core": "^1.0.7"
   }
 }

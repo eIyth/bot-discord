@@ -22,7 +22,7 @@ client.on("ready", () => {
     client.user.setPresence({
         status: "online",
         game: {
-            name: "les nuages",
+            name: "ce gros bouffon d'Obanni",
             type: "WATCHING"
         }
     }); 
