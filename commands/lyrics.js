@@ -29,7 +29,7 @@ module.exports = {
                 const $ = cheerio.load(htmlText);
                 const lyrics = $('.lyrics').text();
 
-                var result = lyrics.split("\\[\\]");
+                var result = lyrics.split("\\[");
                 console.log(result);
                 console.log(result.length);
 
