@@ -10,7 +10,7 @@ module.exports = {
         if (args[1] === 'def') {
             let getMot = async () => {
                 let response = await unirest.get("https://wordsapiv1.p.mashape.com/words/" + args[1])
-                    .header("X-Mashape-Key", TOKEN_WORDAPI)
+                    .header("X-Mashape-Key", process.env.TOKEN_WORDAPI)
                     .header("Accept", "application/json");
                 let def = response.body;
                 return def;
@@ -32,7 +32,7 @@ module.exports = {
         } else if (args[0] === 'rnd') {
             let getMotRnd = async () => {
                 let response = await unirest.get("https://wordsapiv1.p.mashape.com/words/?random=true")
-                    .header("X-Mashape-Key", TOKEN_WORDAPI);
+                    .header("X-Mashape-Key", process.env.TOKEN_WORDAPI);
                 let def = response.body;
                 return def;
             }
