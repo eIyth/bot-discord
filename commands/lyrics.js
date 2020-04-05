@@ -13,12 +13,15 @@ module.exports = {
             const lyricsJSON = await Genius.getLyrics(url);
             const lyrics = lyricsJSON.lyrics;
 
+            const all = await Genius.getAll(search);
+            console.log(all);
+
             const re = /\[[^)]*?\]/g
             const result = lyrics.split(re);
             
             const embed = new Discord.RichEmbed()
                 .setColor('#ffff00')
-                .setTitle("Parole de "+ JSON.stringify(args).toString())
+                .setTitle("Paroles" )
                 .setURL(url);
                 for (let i = 1; i < result.length; i++) {
                     embed.addField("Couplet "+i,result[i]);
