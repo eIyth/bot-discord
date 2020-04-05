@@ -20,8 +20,8 @@ module.exports = {
                 .setColor('#ffff00')
                 .setTitle("Parole de "+ JSON.stringify(args))
                 .setURL(url);
-                for (let i = 1; i < lyrics.length; i++) {
-                    embed.addField('Couplet' + i, lyrics[i])
+                for (let i = 1; i < result.length; i++) {
+                    console.log(result[i])
                 }
             
                 message.channel.send(embed);
