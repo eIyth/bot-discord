@@ -13,7 +13,7 @@ module.exports = {
             const embed = new Discord.RichEmbed()
                 .setColor('yellow')
                 .setTitle("Report envoyé sur "+ args[0])
-                .addField('Motif du report', args.toString());
+                .addField('Motif du report', JSON.stringify(args));
             message.channel.send(embed);
         }
     }
