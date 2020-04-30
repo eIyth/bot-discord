@@ -6,7 +6,7 @@ module.exports = {
     usage : 'report @Username#0000 | report',
 
     run: async (client, message, args) => {
-        if (isEmpty(args)){
+        if (){
             message.channel.send(`Vous devez choisir un utilisateur`);
         }
         else {
