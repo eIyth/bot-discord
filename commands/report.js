@@ -6,14 +6,14 @@ module.exports = {
     usage : 'report @Username#0000 | report',
 
     run: async (client, message, args) => {
-        if (isEmpty(args[0])){
+        if (isEmpty(args)){
             message.channel.send(`Vous devez choisir un utilisateur`);
         }
         else {
             const embed = new Discord.RichEmbed()
                 .setColor('yellow')
                 .setTitle("Report envoyé sur "+ args[0])
-                .addField('Motif du report', JSON.stringify(args));
+                .addField('Motif du report', command);
             message.channel.send(embed);
         }
     }
