@@ -16,13 +16,27 @@ config({
     require(`./handlers/${handler}`)(client);
 });
 
+client.on("guildCreate", guild => {
+
+    let defaultChannel = "";
+    guild.channels.cache.forEach((channel) => {
+      if(channel.type == "text" && defaultChannel == "") {
+        if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+          defaultChannel = channel;
+        }
+      }
+    })
+    defaultChannel.send('Hello, thanks for inviting me !')
+    
+    
+    });
+
 client.on("ready", () => {
     console.log(`Hi, ${client.user.username} is now online!`);
-
     client.user.setPresence({
         status: "online",
         game: {
-            name: "ce gros bouffon d'Obanni",
+            name: " myself getting developped",
             type: "WATCHING"
         }
     }); 
