@@ -11,7 +11,7 @@ module.exports = {
             let getSumId = async () => {
                 
                 let response = await unirest.get("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + nom)
-                    .header("X-Riot-Token", "RGAPI-cebf094b-4de8-4fd2-9f11-a1f392b2ff1f");
+                    .header("X-Riot-Token", process.env.TOKEN_RIOT);
                 let sumId = response.body;
                 try {
                     return sumId.id;
@@ -24,7 +24,7 @@ module.exports = {
                 let sumId = await getSumId();
                 if (sumId) {
                     let response = await unirest.get("https://euw1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + sumId)
-                        .header("X-Riot-Token", "RGAPI-cebf094b-4de8-4fd2-9f11-a1f392b2ff1f");
+                        .header("X-Riot-Token", process.env.TOKEN_RIOT);
                 
                     let match = response.body;
                     return match.participants;
@@ -35,7 +35,7 @@ module.exports = {
                 let sumId = await getSumId();
                 if (sumId) {
                     let response = await unirest.get("https://euw1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + sumId)
-                        .header("X-Riot-Token", "RGAPI-cebf094b-4de8-4fd2-9f11-a1f392b2ff1f");
+                        .header("X-Riot-Token", process.env.TOKEN_RIOT);
 
                     var match = response.body;
 
@@ -62,7 +62,7 @@ module.exports = {
                 var participantsIds = [];
                 for (var id in participants) {
                     let response = await unirest.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + participants[id].summonerId)
-                        .header("X-Riot-Token", "RGAPI-cebf094b-4de8-4fd2-9f11-a1f392b2ff1f");
+                        .header("X-Riot-Token", process.env.TOKEN_RIOT);
                     
                     for (var e in response.body) {
                         if (response.body[e].queueType === "RANKED_SOLO_5x5") {
@@ -80,6 +80,7 @@ module.exports = {
                 for (var id in participants) {
                     let response = await unirest.get("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + participants[id].summonerId)
                         .header("X-Riot-Token", process.env.TOKEN_RIOT);
+                   
                     participantsNames.push(response.body[0].summonerName)
                 }
                 return participantsNames;
