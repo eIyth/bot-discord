@@ -26,6 +26,10 @@ toutes commandes disponibles
 
 https://elyth.fr
 
+>lyrics musique
+
+avoir les paroles d'une musique
+
 ## Installation
 
  clonez les fichiers en local
