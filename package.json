@@ -19,8 +19,10 @@
     "genius": "0.0.2",
     "genius-lyrics": "^1.0.9",
     "jssoup": "0.0.11",
+    "leagueoflegends-api": "^1.0.6",
     "lyrics": "0.0.1",
     "node-fetch": "^2.6.0",
+    "op.gg-api": "^2.0.5-alpha",
     "opusscript": "0.0.7",
     "unfluff": "^3.2.0",
     "unirest": "^0.6.0"

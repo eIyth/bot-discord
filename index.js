@@ -62,4 +62,14 @@ client.on("message", async message => {
         command.run(client, message, args);
 });
 
+client.on('raw', event => {
+    const eventName = event.t;
+    if (eventName === 'MESSAGE_REACTION_ADD') {
+        if (event.d.message_id === '714528427968823356') {
+            console.log("Correct Message.");
+        }
+    }
+});
+
+
 client.login(process.env.TOKEN);
