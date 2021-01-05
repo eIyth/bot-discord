@@ -9,7 +9,7 @@
   "author": "elyth",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.3",
     "common-tags": "^1.8.0",
     "discord.js": "^11.5.1",
